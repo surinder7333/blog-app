@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/SignUp.css";
+import { BASE_API } from "../utils";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -47,24 +48,21 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     if (!form.email || !form.password) {
       toast.error("Email and password are required");
       setLoading(false);
       return;
     }
-    
+
     if (!form.profileImage) {
       toast.error("Profile image is required");
       setLoading(false);
       return;
     }
-    
+
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/register",
-        form
-      );
+      const response = await axios.post(`${BASE_API}/api/auth/register`, form);
       toast.success(response.data.message);
       navigate("/login");
     } catch (error) {
@@ -131,15 +129,14 @@ const SignUp = () => {
             </div>
             {previewImage && (
               <div className="image-preview">
-                <img src={previewImage || "/placeholder.svg"} alt="Profile preview" />
+                <img
+                  src={previewImage || "/placeholder.svg"}
+                  alt="Profile preview"
+                />
               </div>
             )}
           </div>
-          <button 
-            type="submit" 
-            className="submit-btn"
-            disabled={loading}
-          >
+          <button type="submit" className="submit-btn" disabled={loading}>
             {loading ? "Creating Account..." : "Sign Up"}
           </button>
         </form>

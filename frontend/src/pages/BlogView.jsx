@@ -6,6 +6,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import Navbar from "../components/Navbar"
 import "../styles/BlogView.css"
+import { BASE_API } from "../utils"
 
 const BlogView = () => {
   const { id } = useParams()
@@ -17,7 +18,7 @@ const BlogView = () => {
     const fetchBlog = async () => {
       try {
         const token = localStorage.getItem("token")
-        const response = await axios.get(`http://localhost:8080/api/blogs/view/${id}`, {
+        const response = await axios.get(`${BASE_API}/api/blogs/view/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

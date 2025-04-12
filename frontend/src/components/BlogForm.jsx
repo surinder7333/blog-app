@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import {BASE_API} from '../utils'
 import axios from "axios"
 import { toast } from "react-toastify"
 import "../styles/BlogForm.css"
@@ -60,9 +61,11 @@ const BlogForm = ({ onBlogAdded }) => {
       return
     }
 
+   
+
     try {
       const token = localStorage.getItem("token")
-      const response = await axios.post("http://localhost:8080/api/blogs/", form, {
+       await axios.post(`${BASE_API}/api/blogs/`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

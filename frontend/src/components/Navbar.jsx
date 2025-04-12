@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/authContext"
 import axios from "axios"
 import "../styles/Navbar.css"
+import { BASE_API } from "../utils"
 
 const Navbar = () => {
   const { isLoggedIn, setIsLoggeIn } = useContext(AuthContext)
@@ -16,7 +17,7 @@ const Navbar = () => {
       try {
         const token = localStorage.getItem("token")
         if (token) {
-          const response = await axios.get("http://localhost:8080/api/auth/userProfile", {
+          const response = await axios.get(`${BASE_API}/api/auth/userProfile`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

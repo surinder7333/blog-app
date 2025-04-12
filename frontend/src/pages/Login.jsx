@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 import "../styles/Login.css";
+import { BASE_API } from "../utils";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -22,7 +23,7 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
+        `${BASE_API}/api/auth/login`,
         form
       );
       if (response.data.success) {

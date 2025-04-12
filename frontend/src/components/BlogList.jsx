@@ -5,6 +5,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { Link } from "react-router-dom"
 import "../styles/BlogList.css"
+import {BASE_API} from '../utils'
 
 const BlogList = ({ refreshTrigger }) => {
   const [blogs, setBlogs] = useState([])
@@ -18,7 +19,7 @@ const BlogList = ({ refreshTrigger }) => {
     setLoading(true)
     try {
       const token = localStorage.getItem("token")
-      const response = await axios.get("http://localhost:8080/api/blogs/", {
+      const response = await axios.get(`${BASE_API}/api/blogs/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,7 +37,7 @@ const BlogList = ({ refreshTrigger }) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
         const token = localStorage.getItem("token")
-        await axios.delete(`http://localhost:8080/api/blogs/delete/${id}`, {
+        await axios.delete(`${BASE_API}/api/blogs/delete/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
