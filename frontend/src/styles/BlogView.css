@@ -1,0 +1,127 @@
+.blog-view-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.blog-view-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+}
+
+.back-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.blog-view-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.blog-view-image {
+  width: 50%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.blog-view-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blog-view-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.blog-view-description p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.blog-view-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.edit-btn {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #d68910;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: #666;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .blog-view-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .back-btn {
+    width: 100%;
+  }
+
+  .blog-view-actions {
+    justify-content: center;
+  }
+
+  .edit-btn {
+    width: 100%;
+  }
+}
